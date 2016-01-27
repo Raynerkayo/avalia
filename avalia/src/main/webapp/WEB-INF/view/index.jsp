@@ -25,6 +25,8 @@ html, body {
 	
 	<script src="https://maps.googleapis.com/maps/api/js?AIzaSyBjfJp04p7vHBfePyypFkHJep2_ruMEszY&callback=initMap"
 	async defer></script>
-	<script src="../../resources/js/mapa.js"></script>
+	<jsp:include page="fragments/footer.jsp" />
+	<script src="<c:url value="/resources/js/mapa.js" />"></script>
+	<script src="/resources/js/mapa.js" type="text/javascript"></script>
 </body>
 </html>

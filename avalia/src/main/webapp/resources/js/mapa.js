@@ -1,5 +1,6 @@
 var map;
 function initMap() {
+	console.log("Acessou!!!");
 	map = new google.maps.Map(document.getElementById('map'), {
 		center : {
 			lat : -4.970202,
