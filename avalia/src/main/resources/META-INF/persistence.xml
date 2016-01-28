@@ -7,6 +7,9 @@
 
   <persistence-unit name="dev" transaction-type="RESOURCE_LOCAL">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<class>br.ufc.quixada.avalia.model.Coordenada</class>
+	<class>br.ufc.quixada.avalia.model.Avaliacao</class>
+	<class>br.ufc.quixada.avalia.model.Estabelecimento</class>
     <properties>
       <property name="javax.persistence.jdbc.url" 
                 value="jdbc:postgresql://localhost/avalia" />
