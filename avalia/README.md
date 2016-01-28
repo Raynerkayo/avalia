@@ -1,4 +1,4 @@
-exemplo-jpa-spring-mvc
+Avalia
 ======================
 
-Exemplo simples de uso de Spring MVC + JPA com camadas e com uso do Spring Framework
+Sistema de avaliação de estabelecimentos almenticios de Quixadá
