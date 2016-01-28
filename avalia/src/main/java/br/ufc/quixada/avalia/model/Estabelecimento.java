@@ -38,7 +38,7 @@ public class Estabelecimento implements Serializable{
 	@JoinColumn(name = "id_cor", nullable=false)
 	private Coordenada coordenadas;
 	
-	@OneToMany(mappedBy = "estabelecimento", targetEntity = Avaliacao.class)
+	@OneToMany(mappedBy = "estabelecimento", targetEntity = Avaliacao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Avaliacao> avaliacoes;
 	
 	public String getNome() {
@@ -64,5 +64,13 @@ public class Estabelecimento implements Serializable{
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public double getMediaGeral() {
+		double mediaGeral = 0;
+		for(Avaliacao a : avaliacoes) {
+			mediaGeral += a.getMedia();
+		}
+		mediaGeral += mediaGeral/avaliacoes.size();
+		return mediaGeral;
 	}
 }

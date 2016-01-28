@@ -2,11 +2,13 @@ package br.ufc.quixada.avalia.repository;
 
 import java.util.List;
 
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.ufc.quixada.avalia.model.Estabelecimento;
 
+@Named
 public class EstabelecimentoRepositoryImpl implements EstabelecimentoRepository{
 
 	@PersistenceContext
