@@ -20,57 +20,69 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "estabelecimento")
-public class Estabelecimento implements Serializable{
-	
+public class Estabelecimento implements Serializable {
+
 	private static final long serialVersionUID = 1l;
 
 	@Id
 	@Column(name = "id_est")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@NotEmpty(message = "Campo obrigatório")
 	@Column(name = "nome")
 	@Pattern(regexp = "[a-zA-Z\\sà-ùÀ-Ù]{0,}", message = "O campo Nome não pode possuir caracteres especiais ou números.")
 	private String nome;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_cor", nullable=false)
+	@JoinColumn(name = "id_cor", nullable = false)
 	private Coordenada coordenadas;
-	
-	@OneToMany(mappedBy = "estabelecimento", targetEntity = Avaliacao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "estabelecimento", targetEntity = Avaliacao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Avaliacao> avaliacoes;
-	
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public Coordenada getCoordenadas() {
 		return coordenadas;
 	}
+
 	public void setCoordenadas(Coordenada coordenadas) {
 		this.coordenadas = coordenadas;
 	}
+
 	public List<Avaliacao> getAvaliacoes() {
 		return avaliacoes;
 	}
+
 	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
 		this.avaliacoes = avaliacoes;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public double getMediaGeral() {
 		double mediaGeral = 0;
-		for(Avaliacao a : avaliacoes) {
+		if (avaliacoes.isEmpty()) {
+			return mediaGeral;
+		}
+		for (Avaliacao a : avaliacoes) {
 			mediaGeral += a.getMedia();
 		}
-		mediaGeral += mediaGeral/avaliacoes.size();
+
+		mediaGeral = mediaGeral / avaliacoes.size();
 		return mediaGeral;
 	}
 }

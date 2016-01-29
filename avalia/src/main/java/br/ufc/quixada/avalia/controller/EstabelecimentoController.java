@@ -29,7 +29,6 @@ public class EstabelecimentoController {
 	public String listarMapa(Model model) {
 		
 		List<Estabelecimento> estabelecimentos = estabelecimentoService.getAll();
-		Estabelecimento e = estabelecimentoService.getById(1);
 		JsonWrite json = new JsonWrite();
 		json.criarJson(estabelecimentos);
 		

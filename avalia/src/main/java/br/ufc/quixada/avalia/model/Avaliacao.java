@@ -45,7 +45,6 @@ public class Avaliacao implements Serializable{
 	@Column(name = "custo_beneficio")
 	private double custoBeneficio;
 	
-	@NotNull(message = "Campo Obrigatório")
 	@Column(name = "media")
 	private double media;
 	
@@ -101,10 +100,5 @@ public class Avaliacao implements Serializable{
 	}
 	public void setEstabelecimento(Estabelecimento estabelecimento) {
 		this.estabelecimento = estabelecimento;
-	}
-	
-	@PostLoad
-	private void calcularMedia() {
-		
 	}
 }
