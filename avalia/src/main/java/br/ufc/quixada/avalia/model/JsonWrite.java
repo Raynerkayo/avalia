@@ -38,6 +38,5 @@ public class JsonWrite {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(jArray);
 	}
 }
