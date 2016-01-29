@@ -30,7 +30,6 @@ public class JsonWrite {
 			jArray.add(json);
 		}
 		
-
 		try {
 			FileWriter file = new FileWriter("../../estabelecimentos.json");
 			file.write(jArray.toJSONString());
