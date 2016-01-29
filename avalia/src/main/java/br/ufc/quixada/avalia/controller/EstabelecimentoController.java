@@ -22,16 +22,28 @@ public class EstabelecimentoController {
 
 	@Inject
 	private EstabelecimentoService estabelecimentoService;
-	
+
 	private static final String PATH_LISTAR_MAPA = "estabelecimento/listarMapa";
-	
-	@RequestMapping(value="/listarMapa", method = RequestMethod.GET)
-	public String listarMapa(Model model) {
-		
+	private static final String PATH_RANK = "estabelecimento/rank";
+
+	@RequestMapping(value = "/listarMapa", method = RequestMethod.GET)
+	public String listarMapa() {
+
 		List<Estabelecimento> estabelecimentos = estabelecimentoService.getAll();
 		JsonWrite json = new JsonWrite();
 		json.criarJson(estabelecimentos);
-		
+
 		return PATH_LISTAR_MAPA;
+	}
+
+	@RequestMapping(value = "/rank")
+	public String rank(Model model) {
+
+		System.out.println("Aqui porra!!");
+		List<Estabelecimento> estabelecimentos = estabelecimentoService.getAll();
+
+		model.addAttribute("estabelecimentos", estabelecimentos);
+
+		return PATH_RANK;
 	}
 }

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Simple Map</title>
+<title>Mapa Estabelecimentos</title>
 <jsp:include page="../fragments/htmlHead.jsp" />
 <meta name="viewport" content="initial-scale=1.0">
 <meta charset="utf-8">

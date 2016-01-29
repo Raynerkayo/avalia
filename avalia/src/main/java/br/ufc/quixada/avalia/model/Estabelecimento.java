@@ -85,4 +85,69 @@ public class Estabelecimento implements Serializable {
 		mediaGeral = mediaGeral / avaliacoes.size();
 		return mediaGeral;
 	}
+
+	public double getMediaAtendimento() {
+		double media = 0;
+		if (avaliacoes.isEmpty()) {
+			return media;
+		}
+		for (Avaliacao a : avaliacoes) {
+			media += a.getAtendimento();
+		}
+
+		media = media / avaliacoes.size();
+		return media;
+	}
+
+	public double getMediaQualidadeComida() {
+		double media = 0;
+		if (avaliacoes.isEmpty()) {
+			return media;
+		}
+		for (Avaliacao a : avaliacoes) {
+			media += a.getQualidadeComida();
+		}
+
+		media = media / avaliacoes.size();
+		return media;
+	}
+
+	public double getPreco() {
+		double media = 0;
+		if (avaliacoes.isEmpty()) {
+			return media;
+		}
+		for (Avaliacao a : avaliacoes) {
+			media += a.getPreco();
+		}
+
+		media = media / avaliacoes.size();
+		return media;
+	}
+
+	public double getMediaAmbiente() {
+		double media = 0;
+		if (avaliacoes.isEmpty()) {
+			return media;
+		}
+		for (Avaliacao a : avaliacoes) {
+			media += a.getAmbiente();
+		}
+
+		media = media / avaliacoes.size();
+		return media;
+	}
+
+	public double getMediaCustoBeneficio() {
+		double media = 0;
+		if (avaliacoes.isEmpty()) {
+			return media;
+		}
+		for (Avaliacao a : avaliacoes) {
+			media += a.getCustoBeneficio();
+		}
+
+		media = media / avaliacoes.size();
+		return media;
+	}
 }
